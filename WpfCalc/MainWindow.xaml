@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCalc"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        KeyDown="Window_KeyDown">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="output" HorizontalAlignment="Stretch" Text="0" TextWrapping="Wrap" VerticalAlignment="Center" Margin="1,1,1,1" Grid.ColumnSpan="4" FontFamily="Consolas" TextAlignment="Right" FontSize="36" LineStackingStrategy="MaxHeight" Panel.ZIndex="5" Background="#FFB8B7B7" Foreground="Black"/>
+        <Rectangle HorizontalAlignment="Stretch" Margin="1,1,1,1" Stroke="Black" VerticalAlignment="Stretch" Grid.ColumnSpan="4" Style="{DynamicResource rectangleStyle}" Fill="#FFB9B9B9"/>
+        <Button Content="CE" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="clear" Background="White"/>
+        <Button Content="x^2" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="2" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="sqr" Background="White"/>
+        <Button Content="7" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="4" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="1" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="5" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="," HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="6" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="decimal" Background="White"/>
+        <Button Content="C" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="reset" Background="White"/>
+        <Button Content="x^y" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="2" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="pow" Background="White"/>
+        <Button Content="8" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="5" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="2" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="5" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="0" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="6" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="1" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="(====" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="clear_symbol" Background="White"/>
+        <Button Content="sqrt" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="2" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="sqrt" Background="White"/>
+        <Button Content="9" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="6" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="3" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="5" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Background="White"/>
+        <Button Content="=" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="6" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="2" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="evaluate" Background="White"/>
+        <Button Content="ln" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="ln" Background="White"/>
+        <Button Content="%" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="2" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="mod" Background="White"/>
+        <Button Content="/" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="3" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="division" Background="White"/>
+        <Button Content="*" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="4" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="multiplication" Background="White"/>
+        <Button Content="+" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="5" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="addition" Background="White"/>
+        <Button Content="-" HorizontalAlignment="Stretch" Margin="1,1,1,1" Grid.Row="6" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Column="3" Style="{DynamicResource beatifulStyle}" Click="Button_Click" Tag="subtraction" Background="White"/>
+    </Grid>
+</Window>
